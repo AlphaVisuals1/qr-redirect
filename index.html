@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirect...</title>
+
     <style>
         body {
-            background-image: url('https://github.com/AlphaVisuals1/qr-redirect/blob/main/sfondo%20napoli.jpg?raw=true'); /* Link immagine di sfondo */
+            background-image: url('https://github.com/AlphaVisuals1/qr-redirect/blob/main/sfondo%20napoli.jpg?raw=true'); /* Sostituisci con il link corretto */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             color: #fff;
             font-family: Arial, sans-serif;
             text-align: center;
-            padding-top: 10%;
+            padding-top: 20%;
             margin: 0;
             height: 100vh;
             display: flex;
@@ -21,47 +22,25 @@
             justify-content: center;
             align-items: center;
         }
-
-        .logo {
-            width: 200px; /* Dimensione logo */
-            height: auto;
-            margin-bottom: 20px;
-        }
-
         p {
-            font-size: 18px;
             background: rgba(0, 0, 0, 0.5);
             padding: 10px 20px;
-            border-radius: 8px;
+            border-radius: 10px;
         }
-
         a {
-            color: #FFD700;
+            color: #ffcc00;
             font-weight: bold;
         }
     </style>
 
     <script>
         setTimeout(function() {
-            fetch('redirect.txt?nocache=' + new Date().getTime())
-                .then(response => response.text())
-                .then(url => {
-                    window.location.href = url.trim();
-                });
-        }, 4000);
+            window.location.href = "https://drive.google.com/file/d/1PazOd2wDt4qQgM8kGEHHrrk1-AOM105x/view?usp=sharing";
+        }, 4000); // Reindirizzamento dopo 4 secondi
     </script>
+
 </head>
 <body>
-    <img class="logo" src="https://raw.githubusercontent.com/AlphaVisuals1/qr-redirect/c92312f2c0edcc5c7c17df249b069747976e5ece/logo%20cmi.svg" alt="Logo"> <!-- Logo -->
-
-    <p>Se non vieni reindirizzato automaticamente, <a id="manual-link" href="#">clicca qui</a>.</p>
-
-    <script>
-        fetch('redirect.txt?nocache=' + new Date().getTime())
-            .then(response => response.text())
-            .then(url => {
-                document.getElementById('manual-link').href = url.trim();
-            });
-    </script>
+    <p>Se non vieni reindirizzato automaticamente, <a href="https://drive.google.com/file/d/1PazOd2wDt4qQgM8kGEHHrrk1-AOM105x/view?usp=sharing">clicca qui</a>.</p>
 </body>
 </html>
