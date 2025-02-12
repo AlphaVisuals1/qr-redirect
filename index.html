@@ -3,22 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=https://drive.google.com/file/d/1PazOd2wDt4qQgM8kGEHHrrk1-AOM105x/view?usp=sharing" />
     <title>Redirect...</title>
     <style>
         body {
-            background-color: #f0f0f0;
-            color: #333;
+            background-image: url('https://github.com/AlphaVisuals1/qr-redirect/blob/main/sfondo%20napoli.jpg?raw=true'); /* Link immagine di sfondo */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
             font-family: Arial, sans-serif;
             text-align: center;
-            padding-top: 20%;
+            padding-top: 10%;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
+
+        .logo {
+            width: 200px; /* Dimensione logo */
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
         a {
-            color: #0066cc;
+            color: #FFD700;
+            font-weight: bold;
         }
     </style>
+
+    <script>
+        setTimeout(function() {
+            fetch('redirect.txt?nocache=' + new Date().getTime())
+                .then(response => response.text())
+                .then(url => {
+                    window.location.href = url.trim();
+                });
+        }, 4000);
+    </script>
 </head>
 <body>
-    <p>Se non vieni reindirizzato automaticamente, <a href="https://drive.google.com/file/d/1PazOd2wDt4qQgM8kGEHHrrk1-AOM105x/view?usp=sharing">clicca qui</a>.</p>
+    <img class="logo" src="https://raw.githubusercontent.com/alphavisuals1/qr-redirect/main/logo.png" alt="Logo"> <!-- Logo -->
+
+    <p>Se non vieni reindirizzato automaticamente, <a id="manual-link" href="#">clicca qui</a>.</p>
+
+    <script>
+        fetch('redirect.txt?nocache=' + new Date().getTime())
+            .then(response => response.text())
+            .then(url => {
+                document.getElementById('manual-link').href = url.trim();
+            });
+    </script>
 </body>
 </html>
