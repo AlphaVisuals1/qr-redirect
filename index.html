@@ -34,13 +34,27 @@
     </style>
 
     <script>
-        setTimeout(function() {
-            window.location.href = "https://drive.google.com/file/d/1rQbsTRU_gUPWtM2kmIehZO3gQjFzTTjO/view?usp=sharing";
-        }, 4000); // Reindirizzamento dopo 4 secondi
+        fetch('https://raw.githubusercontent.com/AlphaVisuals1/qr-redirect/main/redirect.json') // Link RAW del JSON
+        .then(response => response.json())
+        .then(data => {
+            setTimeout(function() {
+                window.location.href = data.url; // Usa l'URL dinamico dal JSON
+            }, 4000);
+        })
+        .catch(error => console.error('Errore nel caricamento del link:', error));
     </script>
 
 </head>
 <body>
-    <p>Se non vieni reindirizzato automaticamente, <a href="https://drive.google.com/file/d/1rQbsTRU_gUPWtM2kmIehZO3gQjFzTTjO/view?usp=sharing">clicca qui</a>.</p>
+    <p>Se non vieni reindirizzato automaticamente, <a href="#" id="redirect-link">clicca qui</a>.</p>
+
+    <script>
+        // Aggiorna il link manuale con l'URL del JSON
+        fetch('https://raw.githubusercontent.com/AlphaVisuals1/qr-redirect/main/redirect.json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("redirect-link").href = data.url;
+        });
+    </script>
 </body>
 </html>
