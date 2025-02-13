@@ -34,11 +34,14 @@
     </style>
 
     <script>
-        fetch('https://raw.githubusercontent.com/AlphaVisuals1/qr-redirect/main/redirect.json') // Link RAW del JSON
+        // Costruisce l'URL del JSON con un parametro per evitare la cache
+        let jsonUrl = 'https://raw.githubusercontent.com/AlphaVisuals1/qr-redirect/main/redirect.json?v=' + new Date().getTime();
+
+        fetch(jsonUrl)
         .then(response => response.json())
         .then(data => {
             setTimeout(function() {
-                window.location.href = data.url; // Usa l'URL dinamico dal JSON
+                window.location.href = data.url; // Reindirizza all'URL aggiornato
             }, 4000);
         })
         .catch(error => console.error('Errore nel caricamento del link:', error));
@@ -49,8 +52,8 @@
     <p>Se non vieni reindirizzato automaticamente, <a href="#" id="redirect-link">clicca qui</a>.</p>
 
     <script>
-        // Aggiorna il link manuale con l'URL del JSON
-        fetch('https://raw.githubusercontent.com/AlphaVisuals1/qr-redirect/main/redirect.json')
+        // Aggiorna anche il link manuale per evitare problemi di cache
+        fetch(jsonUrl)
         .then(response => response.json())
         .then(data => {
             document.getElementById("redirect-link").href = data.url;
